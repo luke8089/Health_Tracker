@@ -1,0 +1,28 @@
+# Uploads Directory
+
+This directory stores user uploads such as profile pictures and documents.
+
+## Directory Structure
+
+- `avatars/` - User profile pictures
+- `documents/` - Health-related documents
+- `assessments/` - Assessment attachments
+- `temp/` - Temporary upload storage
+
+## Security
+
+All uploaded files are validated for:
+- File type restrictions
+- Maximum file size (5MB)
+- Virus scanning (in production)
+- Safe filename handling
+
+## Permissions
+
+This directory requires write permissions for the web server:
+
+```bash
+chmod 755 uploads/
+```
+
+For Docker containers, permissions are handled automatically.

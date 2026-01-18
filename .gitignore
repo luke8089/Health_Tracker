@@ -1,0 +1,68 @@
+# Sensitive configuration files
+config.php
+mail/config.php
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Logs
+logs/
+*.log
+
+# Uploads and user-generated content
+public/uploads/*
+!public/uploads/.gitkeep
+
+# PHPMailer vendor (should be installed via Composer)
+PHPMailer/
+
+# IDE and Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# OS generated files
+Thumbs.db
+desktop.ini
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+*.cache
+
+# Backup files
+*.bak
+*.backup
+*~
+
+# Composer
+vendor/
+composer.phar
+composer.lock
+
+# Node modules (if any)
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Build files
+dist/
+build/
+
+# Database
+*.sql
+*.sqlite
+*.db
+
+# Session files
+sessions/
+
+# Cache
+cache/
+*.cache

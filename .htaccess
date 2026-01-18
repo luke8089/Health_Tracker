@@ -1,0 +1,36 @@
+# Health Tracker .htaccess
+
+# Enable rewrite engine
+RewriteEngine On
+RewriteBase /health-tracker/
+
+# Set default error document to landing page
+ErrorDocument 404 /health-tracker/error.php
+ErrorDocument 403 /health-tracker/error.php
+ErrorDocument 500 /health-tracker/error.php
+
+# Prevent directory listing
+Options -Indexes
+
+# Force HTTPS (optional - uncomment if you want to force HTTPS)
+# RewriteCond %{HTTPS} off
+# RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Cache control for security
+<IfModule mod_headers.c>
+    # Prevent caching of sensitive pages
+    <FilesMatch "\.(php)$">
+        Header set Cache-Control "no-store, no-cache, must-revalidate, max-age=0"
+        Header set Pragma "no-cache"
+        Header set Expires "0"
+    </FilesMatch>
+    
+    # Security headers
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-Frame-Options "SAMEORIGIN"
+    Header set X-XSS-Protection "1; mode=block"
+</IfModule>
+
+# Redirect root to landing page if no session
+RewriteCond %{REQUEST_URI} ^/health-tracker/?$
+RewriteRule ^$ landing_page/index.php [L]
