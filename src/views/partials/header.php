@@ -386,7 +386,7 @@ $flashMessage = Utils::getFlashMessage();
                         
                         <!-- Activities Dropdown -->
                         <div class="relative" id="activitiesDropdownContainer" onmouseenter="showActivitiesDropdown()" onmouseleave="hideActivitiesDropdown()">
-                            <button class="nav-link flex items-center px-4 py-2 text-gray-700 hover:text-gray-900 rounded-xl transition-all duration-200 hover:bg-green-400/10 <?php echo basename($_SERVER['PHP_SELF']) === 'activities.php' ? 'active bg-gradient-to-r from-gray-800 to-green-400 text-white shadow-lg' : ''; ?>">
+                            <button class="nav-link flex items-center px-4 py-2 text-gray-700 hover:text-gray-900 rounded-xl transition-all duration-200 hover:bg-green-400/10 <?php echo in_array(basename($_SERVER['PHP_SELF']), ['activities.php', 'physical_assessment.php', 'mental_assessment.php', 'connect_doctor.php', 'appointments.php']) ? 'active bg-gradient-to-r from-gray-800 to-green-400 text-white shadow-lg' : ''; ?>">
                                 <svg class="w-4 h-4 mr-2 icon-rotate" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
                                 </svg>
@@ -414,6 +414,12 @@ $flashMessage = Utils::getFlashMessage();
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
                                     </svg>
                                     Connect with Doctors
+                                </a>
+                                <a href="/health-tracker/public/appointments.php" class="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-gradient-to-r hover:from-amber-50 hover:to-orange-50 hover:text-amber-700 transition-all duration-200 mx-2 rounded-xl">
+                                    <svg class="w-4 h-4 mr-3 icon-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10m-11 9h12a2 2 0 002-2V7a2 2 0 00-2-2H6a2 2 0 00-2 2v11a2 2 0 002 2z"/>
+                                    </svg>
+                                    Appointments
                                 </a>
                             </div>
                         </div>
@@ -585,6 +591,12 @@ $flashMessage = Utils::getFlashMessage();
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
                             </svg>
                             Connect with Doctors
+                        </a>
+                        <a href="/health-tracker/public/appointments.php" class="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-amber-50 rounded-xl transition-all duration-200">
+                            <svg class="w-4 h-4 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10m-11 9h12a2 2 0 002-2V7a2 2 0 00-2-2H6a2 2 0 00-2 2v11a2 2 0 002 2z"/>
+                            </svg>
+                            Appointments
                         </a>
                     </div>
                     

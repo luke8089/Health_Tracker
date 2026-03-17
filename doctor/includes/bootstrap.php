@@ -61,6 +61,14 @@ function getDoctorStats($doctorId, $optimizer) {
                 [$doctorId],
                 300
             )['total'] ?? 0,
+
+            'pending_appointments' => $optimizer->cachedQueryOne(
+                "SELECT COUNT(*) as total
+                 FROM appointments
+                 WHERE doctor_id = ? AND status = 'pending'",
+                [$doctorId],
+                60
+            )['total'] ?? 0,
             
             'unread_messages' => $optimizer->cachedQueryOne(
                 "SELECT COUNT(*) as total 

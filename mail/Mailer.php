@@ -306,4 +306,34 @@ class Mailer {
             ];
         }
     }
+
+    /**
+     * Send appointment scheduled notification to patient
+     *
+     * @param array $patientData Patient data (name, email)
+     * @param array $doctorData Doctor data (name, specialty)
+     * @param array $appointmentData Appointment data (appointment_date, appointment_time, doctor_response, reason)
+     * @return array Success status and message
+     */
+    public function sendAppointmentScheduledEmail($patientData, $doctorData, $appointmentData) {
+        try {
+            $template = require __DIR__ . '/templates/appointment_scheduled.php';
+            $body = $template($patientData, $doctorData, $appointmentData, $this->config['base_url']);
+
+            $subject = "Appointment Scheduled with Dr. {$doctorData['name']} - Health Tracker";
+
+            return $this->send(
+                $patientData['email'],
+                $subject,
+                $body,
+                $patientData['name']
+            );
+        } catch (Exception $e) {
+            error_log("Appointment scheduled email error: " . $e->getMessage());
+            return [
+                'success' => false,
+                'message' => 'Failed to send appointment notification email: ' . $e->getMessage()
+            ];
+        }
+    }
 }

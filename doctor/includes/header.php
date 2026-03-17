@@ -203,6 +203,12 @@ $flashMessage = Utils::getFlashMessage();
                         </svg>
                         <span class="hidden lg:inline">Video</span>
                     </a>
+                    <a href="<?php echo doctorUrl('appointments.php'); ?>" class="nav-link flex items-center text-gray-700 hover:text-gray-900 rounded-lg transition-all duration-300 hover:bg-green-400/10 <?php echo basename($_SERVER['PHP_SELF']) === 'appointments.php' ? 'active bg-gradient-to-r from-gray-800 to-green-400 text-white shadow-md' : ''; ?>">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10m-11 9h12a2 2 0 002-2V7a2 2 0 00-2-2H6a2 2 0 00-2 2v11a2 2 0 002 2z"/>
+                        </svg>
+                        <span class="hidden lg:inline">Appointments</span>
+                    </a>
                     <a href="<?php echo doctorUrl('messages.php'); ?>" class="nav-link flex items-center text-gray-700 hover:text-gray-900 rounded-lg transition-all duration-300 hover:bg-green-400/10 <?php echo basename($_SERVER['PHP_SELF']) === 'messages.php' ? 'active bg-gradient-to-r from-gray-800 to-green-400 text-white shadow-md' : ''; ?>">
                         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
@@ -288,6 +294,12 @@ $flashMessage = Utils::getFlashMessage();
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/>
                         </svg>
                         Video Calls
+                    </a>
+                    <a href="<?php echo doctorUrl('appointments.php'); ?>" class="nav-link flex items-center text-gray-700 hover:text-gray-900 hover:bg-green-400/10 <?php echo basename($_SERVER['PHP_SELF']) === 'appointments.php' ? 'active bg-gradient-to-r from-gray-800 to-green-400 text-white' : ''; ?>">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10m-11 9h12a2 2 0 002-2V7a2 2 0 00-2-2H6a2 2 0 00-2 2v11a2 2 0 002 2z"/>
+                        </svg>
+                        Appointments
                     </a>
                     <a href="<?php echo doctorUrl('messages.php'); ?>" class="nav-link flex items-center text-gray-700 hover:text-gray-900 hover:bg-green-400/10 <?php echo basename($_SERVER['PHP_SELF']) === 'messages.php' ? 'active bg-gradient-to-r from-gray-800 to-green-400 text-white' : ''; ?>">
                         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">

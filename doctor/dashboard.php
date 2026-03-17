@@ -12,6 +12,7 @@ $stats = getDoctorStats($currentUser['id'], $queryOptimizer);
 $totalPatients = $stats['total_patients'];
 $pendingVerifications = $stats['pending_verifications'];
 $totalAssessments = $stats['total_assessments'];
+$pendingAppointments = $stats['pending_appointments'];
 $unreadMessages = $stats['unread_messages'];
 
 // Get recent data (all cached)
@@ -64,7 +65,7 @@ require_once __DIR__ . '/includes/header.php';
             </div>
 
             <!-- Stats Overview -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 mb-8">
                 <!-- Total Patients -->
                 <a href="messages.php" class="bg-white rounded-xl shadow-md p-6 card-hover fade-in cursor-pointer">
                     <div class="flex items-center">
@@ -139,6 +140,28 @@ require_once __DIR__ . '/includes/header.php';
                         <div class="ml-4">
                             <p class="text-2xl font-bold text-gray-900"><?php echo $unreadMessages; ?></p>
                             <p class="text-sm text-gray-600">Unread Messages</p>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Pending Appointments -->
+                <a href="appointments.php" class="bg-white rounded-xl shadow-md p-6 card-hover fade-in cursor-pointer" style="animation-delay: 0.4s;">
+                    <div class="flex items-center">
+                        <div class="flex-shrink-0">
+                            <div class="w-12 h-12 bg-amber-100 rounded-lg flex items-center justify-center relative">
+                                <svg class="w-6 h-6 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10m-11 9h12a2 2 0 002-2V7a2 2 0 00-2-2H6a2 2 0 00-2 2v11a2 2 0 002 2z"/>
+                                </svg>
+                                <?php if ($pendingAppointments > 0): ?>
+                                    <span class="absolute -top-1 -right-1 w-5 h-5 bg-red-500 rounded-full flex items-center justify-center text-xs text-white font-bold">
+                                        <?php echo $pendingAppointments > 9 ? '9+' : $pendingAppointments; ?>
+                                    </span>
+                                <?php endif; ?>
+                            </div>
+                        </div>
+                        <div class="ml-4">
+                            <p class="text-2xl font-bold text-gray-900"><?php echo $pendingAppointments; ?></p>
+                            <p class="text-sm text-gray-600">Appointments</p>
                         </div>
                     </div>
                 </a>
@@ -249,7 +272,7 @@ require_once __DIR__ . '/includes/header.php';
             </div>
 
             <!-- Quick Actions -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
                 <a href="verify_habits.php" class="bg-white rounded-xl shadow-md p-6 card-hover fade-in text-center" style="animation-delay: 0.6s;">
                     <div class="w-16 h-16 bg-gradient-to-br from-accent to-primary rounded-xl flex items-center justify-center mx-auto mb-4">
                         <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -270,7 +293,17 @@ require_once __DIR__ . '/includes/header.php';
                     <p class="text-sm text-gray-600">Communicate with your patients</p>
                 </a>
 
-                <a href="profile.php" class="bg-white rounded-xl shadow-md p-6 card-hover fade-in text-center" style="animation-delay: 0.8s;">
+                <a href="appointments.php" class="bg-white rounded-xl shadow-md p-6 card-hover fade-in text-center" style="animation-delay: 0.8s;">
+                    <div class="w-16 h-16 bg-gradient-to-br from-amber-500 to-orange-500 rounded-xl flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10m-11 9h12a2 2 0 002-2V7a2 2 0 00-2-2H6a2 2 0 00-2 2v11a2 2 0 002 2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-bold text-gray-900 mb-2">Appointments</h3>
+                    <p class="text-sm text-gray-600">Review and schedule patient bookings</p>
+                </a>
+
+                <a href="profile.php" class="bg-white rounded-xl shadow-md p-6 card-hover fade-in text-center" style="animation-delay: 0.9s;">
                     <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center mx-auto mb-4">
                         <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
